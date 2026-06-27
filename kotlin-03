@@ -1,0 +1,49 @@
+/******************************************************************************
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+fun main() {
+    print("Enter first name : ")
+    val firstname = readln()
+    print("Enter last name : ")
+    val lastname = readln()
+    
+    val fullname = firstname + " " + lastname
+    print("Enter your age : ")
+    val age = readln().toInt()
+    
+    print("Enter your course :")
+    val course = readln()
+    
+    print("Enter college Name :")
+    val collegeName = readln()
+    
+    print("Enter your cgpa :")
+    val cgpa = readln().toDouble()
+    
+    print("Enter number of completed Courses : ")
+    val numCompletedCourses = readln().toInt()
+    
+    print("Enter current stipend :")
+    val stipend = readln().toDouble()
+    
+    
+    println("Name : ${fullname}")
+    println("Age : ${age}")
+    println("Name of Course : ${course}")
+    println("cgpa : ${cgpa}")
+    println("Number of Completed Projects : ${numCompletedCourses}")
+    println("Current Stipend : ${stipend}")
+    
+    println("Next Year age : ${age + 1}")
+    println("Projects after 5 more: ${numCompletedCourses+5}")
+    println("Expected Stipend after ${20%} hike : {stipend + 0.2*stipend}")
+    
+    
+    
+    
+
+}
