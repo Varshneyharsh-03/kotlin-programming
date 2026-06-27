@@ -1,0 +1,37 @@
+package com.example.myapplication
+
+open class PaymentMethod {
+    open fun pay(amt: Double) {
+        println("${amt} paid using payment method")
+    }
+}
+
+class UPI : PaymentMethod() {
+    override fun pay(amt: Double) {
+        println("${amt} paid using UPI")
+    }
+}
+
+class NetBanking : PaymentMethod() {
+    override fun pay(amt: Double) {
+        println("${amt} paid using Netbanking")
+    }
+}
+
+class CreditCard : PaymentMethod() {
+    override fun pay(amt: Double) {
+        println("${amt} paid using CreditCard")
+    }
+}
+
+fun main() {
+
+    val payemnts = listOf<PaymentMethod>(
+        UPI(), NetBanking(), CreditCard()
+    )
+
+    for(method in payemnts){
+        method.pay(120.0)
+    }
+
+}
