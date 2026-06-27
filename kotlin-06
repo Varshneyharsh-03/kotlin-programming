@@ -1,0 +1,73 @@
+package com.example.myapplication
+
+fun main() {
+    print("Enter username : ")
+    val username: String = readln()
+
+    val menu: String = """
+        1 -> Pizza 
+        2 -> Burger
+        3 -> Pasta
+        4 -> Sandwich
+        5 -> Coffee
+        6 -> Ice Cream
+    """.trimIndent()
+
+    println(menu)
+    var choice: Int?
+    while (true) {
+        print("User please enter your choise 1-6")
+        choice = readln().toInt()
+
+        if (choice < 0 || choice > 6) {
+            println("Enter a valid choice")
+        } else {
+            break
+        }
+    }
+    var item: String? = null
+    var price: Double? = null
+    when (choice) {
+        1 -> {
+            item = "Pizza"
+            price = 100.0
+        }
+
+        2 -> {
+            item = "Burger"
+            price = 150.0
+        }
+
+        3 -> {
+            item = "Pasta"
+            price = 200.0
+        }
+
+        4 -> {
+            item = "Sandwich"
+            price = 110.0
+        }
+
+        5 -> {
+            item = "Coffee"
+            price = 75.0
+        }
+
+        6 -> {
+            item = "Ice Cream"
+            price = 90.0
+        }
+        
+    }
+
+    println(
+        """
+        Hello ${username.lowercase().replaceFirstChar { it.uppercase() }}!
+
+        You ordered: ${item}
+        Price: ₹${price}
+    """.trimIndent()
+    )
+
+
+}
