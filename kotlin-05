@@ -1,0 +1,50 @@
+package com.example.myapplication
+
+fun main(){
+    print("Enter student name :")
+    val name : String = readln()
+
+    print("Enter your age :")
+    val age : Int = readln().toInt()
+
+    print("Enter your CGPA :")
+    val cgpa : Double = readln().toDouble()
+
+    print("Enter number of backlogs : ")
+    val numBacklogs : Int = readln().toInt()
+
+    print("Enter your attendance % :")
+    val attendance : Double = readln().toDouble()
+
+    if(age >= 18 && cgpa >=7.5 && numBacklogs==0 && attendance >= 75){
+        println("""
+            Congratulations , ${name}!
+            Your are eligible for placements
+        """.trimIndent())
+    }
+    else if(age<18){
+        println("""
+            Sorry ${name},
+            Reason: You must be at least 18 years old.
+        """.trimIndent())
+    }
+    else if(cgpa < 7.5){
+        println("""
+            Sorry ${name},
+            Reason: CGPA must be at least 7.5.
+        """.trimIndent())
+    }
+    else if(numBacklogs>0){
+        println("""
+            Sorry ${name},
+            Reason: You should have no active backlogs.
+        """.trimIndent())
+    }
+    else{
+        println("""
+            Sorry ${name},
+            Reason: Your attendance is low .
+        """.trimIndent())
+    }
+
+}
