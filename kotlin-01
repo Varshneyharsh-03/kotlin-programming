@@ -1,0 +1,38 @@
+/**
+ * You can edit, run, and share this code.
+ * play.kotlinlang.org
+ */
+const val COLLEGE_NAME = "NSUT"
+fun main() {
+   val name : String = "harsh varshney"
+   var age : Int = 22
+   var height : Float = 5.10f
+   var isKnowKotlin : Boolean = false
+    
+    println(name)
+    println(age)
+    println(height)
+    println(isKnowKotlin)
+    
+    age = 23
+    println(age)
+    
+    println(COLLEGE_NAME)
+    
+    
+    val bankAccountNumber : Long = 123239532
+    var currScore : Long = 23
+    val dob : String = "03-March-2026"
+    
+    var numLivesLeft : Int = 5
+    var currAppVersion : String = "14.5.0"
+    
+    println(bankAccountNumber)
+   	println(currScore)
+    println(dob)
+    println(numLivesLeft)
+    println(currAppVersion)
+    
+    
+    
+}
