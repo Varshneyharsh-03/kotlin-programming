@@ -1,0 +1,31 @@
+fun main() {
+   val name : String? = null
+   var age : Int = 22
+   var marks : Int = 56
+   var attendence : Double = 23.43
+   var isFeesPaid : Boolean = true
+    
+    println(name ?: "Unknown user")
+    println(name?.length)
+   
+   var isPassed : Boolean = marks >= 40
+    println(isPassed)
+    
+    var isEligibleForPlacements : Boolean = (marks >= 60 && attendence >=75 && isFeesPaid)
+    println(isEligibleForPlacements)
+    
+    var updatedMarks : Int = marks + 5
+    println("Original Marks : ${marks}")
+    println("Updated Marks : ${updatedMarks}")
+    
+    
+    var updatedMarsksMoreThan90 : Boolean = updatedMarks >= 90
+    val totalMarks : Int = marks + updatedMarks
+    println("Total Marks = ${totalMarks}")
+    println("remainder = ${totalMarks%7}")
+    
+    
+    var email : String ?= null
+    
+    println("Email : ${email ?: "email not available"}")
+}
