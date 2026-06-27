@@ -1,0 +1,62 @@
+package com.example.myapplication
+
+open class Person(val name: String, val age: Int) {
+    fun showInfo() {
+        println(
+            """
+            Name : $name,
+            Age : $age
+        """.trimIndent()
+        )
+    }
+}
+
+
+class Student(name: String, age: Int, val rollNo: String, val cgpa: Double, val branch: String) :
+    Person(name, age) {
+    fun showResult() {
+        println(
+            """
+            RollNo : $rollNo,
+            CGPA : $cgpa,
+            branch : $branch
+        """.trimIndent()
+        )
+    }
+}
+
+class Professor(
+    name: String,
+    age: Int,
+    val department: String,
+    val salary: Double,
+    val empId: String
+) : Person(name, age) {
+    fun showDetails() {
+        println(
+            """
+            department : $department,
+            salary : $salary,
+            empId : $empId
+        """.trimIndent()
+        )
+    }
+}
+
+
+fun main() {
+    val student: Student = Student("harsh", 21, "2022uci6569", 8.1, "CIOT")
+    val professor: Professor = Professor("Manoj", 45, "Computer Science", 100000.0, "3o84ut8we")
+
+
+    student.apply {
+        showResult()
+        showInfo()
+    }
+
+    professor.apply {
+        showDetails()
+        showInfo()
+    }
+
+}
