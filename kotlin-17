@@ -1,0 +1,116 @@
+package com.example.myapplication
+
+fun main() {
+    var students: MutableList<String> = mutableListOf()
+    val menu = """
+        ===== Student Management =====
+        1. Add Student
+        2. Remove Student
+        3. Update Student
+        4. Search Student
+        5. Display All Students
+        6. Sort Students
+        7. Reverse List
+        8. Count Students
+        9. Clear List
+        10. Exit
+    """.trimIndent()
+
+
+    var isRunning = true
+    while (isRunning) {
+        println(menu)
+        print("Enter your choise btw 1 and 10")
+        val choice: Int = readln().toInt()
+
+        when (choice) {
+            1 -> {
+                print("Enter student name : ")
+                val name: String = readln()
+                if (!students.contains(name)) {
+                    students.add(name)
+                    println("student named $name is successfully added")
+                } else {
+                    println("student named $name is already in the list")
+                }
+            }
+
+            2 -> {
+                print("Enter student name : ")
+                val name: String = readln()
+
+                if (students.contains(name)) {
+                    students.remove(name)
+
+                    println("student $name is successfully removed from the list")
+                } else {
+                    println("Student $name does not exists in the list")
+                }
+            }
+
+            3 -> {
+                print("Enter student name : ")
+                val name: String = readln()
+
+                if (students.contains(name)) {
+                    val index = students.indexOf(name)
+                    val prevName = students[index]
+                    students[index] = name
+
+                    println("student named $prevName is updated to $name")
+
+
+                } else {
+                    println("Student $name does not exists in the list")
+                }
+            }
+
+            4 -> {
+                print("Enter student name : ")
+                val name: String = readln()
+
+                if (students.contains(name)) {
+                    println("Student named $name is present in the list")
+                } else {
+                    println("Student $name does not exists in the list")
+                }
+            }
+
+            5 -> {
+                println("Displaying all the students")
+                println("Students : ${students.joinToString()}")
+            }
+
+            6 -> {
+                students.sort()
+                println("Displaying  all the students is sorted order")
+                println("Students : ${students.joinToString()}")
+            }
+
+            7 -> {
+                students.reverse()
+                println("Displaying  all the students is reveresd order")
+                println("Students : ${students.joinToString()}")
+            }
+
+            8 -> {
+                println("Number of students in the list : ${students.size}")
+            }
+            
+            9->{
+                print("Really want to clear the list : Y/N")
+                val ans  = readln()
+                
+                if(ans == "Y"){
+                    students.clear()
+                    println("Students list is clear successfully")
+                }
+                
+            }
+            10->{
+                println("Thank you for using this app")
+                isRunning = false
+            }
+        }
+    }
+}
