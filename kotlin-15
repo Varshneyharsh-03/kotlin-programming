@@ -1,0 +1,47 @@
+package com.example.myapplication
+
+object Bank {
+    private var totalBalance: Double = 25000.0
+    fun deposit(amt: Double) {
+        if (amt > 0) {
+            totalBalance += amt
+            printBalance()
+        }
+    }
+
+    fun withdraw(amt: Double) {
+        if (amt > 0) {
+            totalBalance -= amt
+            printBalance()
+        }
+    }
+
+    fun printBalance() {
+        println("Your updated balance is ${totalBalance}")
+    }
+
+}
+
+interface TransactionListener {
+    fun onTransaction(message: String)
+}
+
+fun main(){
+    Bank.printBalance()
+    Bank.withdraw(210.0)
+    Bank.deposit(340.0)
+
+
+    val logger = object : TransactionListener {
+        override fun onTransaction(message: String) {
+            println(message)
+        }
+    }
+
+    logger.onTransaction("₹5000 deposited")
+
+
+
+
+
+}
