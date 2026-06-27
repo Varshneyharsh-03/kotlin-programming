@@ -1,0 +1,67 @@
+package com.example.myapplication
+
+interface Switchable {
+    fun turnOn()
+    fun turnOff()
+}
+
+interface InternetConnectable {
+    fun connectToWifi()
+}
+
+interface VoiceControlled {
+    fun listenCommand()
+}
+
+
+class SmartTv : Switchable, InternetConnectable, VoiceControlled {
+    override fun turnOff() {
+        println("Turn off the tv")
+    }
+
+    override fun turnOn() {
+        println("Turn on the tv")
+    }
+
+    override fun connectToWifi() {
+        println("Connect wifi to smartTv")
+    }
+
+    override fun listenCommand() {
+        println("listen to users command on smarttv")
+    }
+}
+
+class SmartLight : Switchable, InternetConnectable {
+    override fun turnOff() {
+        println("turn off the light")
+    }
+
+    override fun connectToWifi() {
+        println("smart light connect to wifi")
+    }
+
+    override fun turnOn() {
+        println("turn on the smart light")
+    }
+}
+
+class SmartSpeaker : InternetConnectable, VoiceControlled {
+    override fun connectToWifi() {
+        println("smart speacker connect to wifi")
+    }
+
+    override fun listenCommand() {
+        println("smart speaker listen to voice commands")
+    }
+}
+
+fun main() {
+    val devices = listOf<InternetConnectable>(
+        SmartSpeaker(), SmartTv(), SmartLight()
+    )
+    
+    for(device in devices){
+        device.connectToWifi()
+    }
+}
