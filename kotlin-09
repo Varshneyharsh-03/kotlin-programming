@@ -1,0 +1,40 @@
+package com.example.myapplication
+
+class Movie(
+    val name: String = "dummyMovieName",
+    val director: String = "dummyDirector",
+    var rating: Double = 1.0
+) {
+    fun play(){
+        println("Playing movie with title : ${this.name}")
+    }
+
+    fun displayDetails(){
+        println("""
+            Name of the movie is ${this.name},
+            Director of the movie is ${this.director},
+            Rating of the movie is ${this.rating}
+        """.trimIndent())
+    }
+}
+
+
+fun main(){
+    val movie1 = Movie("Movie1","Director1",1.5)
+    val movie2 = Movie("Movie2","Director2",2.5)
+    val movie3 = Movie("Movie2","Director3",2.5)
+
+    movie1.play()
+    movie2.play()
+    movie3.play()
+
+    movie1.displayDetails()
+    movie2.displayDetails()
+    movie3.displayDetails()
+
+    movie2.rating += 1
+    movie2.displayDetails()
+
+
+
+}
