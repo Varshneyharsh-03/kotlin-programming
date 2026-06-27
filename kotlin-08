@@ -1,0 +1,64 @@
+package com.example.myapplication
+
+
+fun main() {
+    print("Enter student name : ")
+    val studentName: String = readln()
+
+    print("Enter your total marks ")
+    val totalMarks: Int = readln().toInt()
+
+    print("Enter number of subjects : ")
+    val numSubjects: Int = readln().toInt()
+
+    printReportCard(studentName, totalMarks, numSubjects)
+}
+
+fun printReportCard(name: String, marks: Int, subject: Int) {
+    val percentage: Double = calculatePercentage(marks, subject)
+    val grade: String = calculateGrade(percentage)
+    val isPass: Boolean = percentage >= 40.1
+
+
+    println("Student name = $name")
+    println("Grade = $grade")
+    println("Percentage = $percentage")
+    println("Status : ${if (isPass) "Pass" else "Fail"}")
+}
+
+fun calculatePercentage(marks: Int, subject: Int): Double {
+    val totalMarks = 100 * subject
+    return ((marks * 100 / totalMarks)).toDouble()
+}
+
+fun calculateGrade(percentage: Double): String {
+    return when (percentage) {
+        in 90.1..100.0 -> {
+            "A+"
+        }
+
+        in 80.1..90.0 -> {
+            "A"
+        }
+
+        in 70.1..80.0 -> {
+            "B+"
+        }
+
+        in 60.1..70.0 -> {
+            "B"
+        }
+
+        in 50.1..60.0 -> {
+            "C"
+        }
+
+        in 40.1..50.0 -> {
+            "D"
+        }
+
+        else -> {
+            "F"
+        }
+    }
+}
