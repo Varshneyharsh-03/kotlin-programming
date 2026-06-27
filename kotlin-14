@@ -1,0 +1,48 @@
+package com.example.myapplication
+
+abstract class Vehicle(val registrationNumber: String, val brand: String) {
+    fun displayInfo() {
+        println(
+            """
+            Registration number : $registrationNumber
+            brand : $brand
+        """.trimIndent()
+        )
+    }
+
+    abstract fun calculateRent()
+}
+
+class Car(registrationNumber: String, brand: String, val days: Int) :
+    Vehicle(registrationNumber, brand) {
+    override fun calculateRent() {
+        println("your car rent is : ${1500 * days}")
+    }
+}
+
+class Bike(registrationNumber: String, brand: String, val days: Int) :
+    Vehicle(registrationNumber, brand) {
+    override fun calculateRent() {
+        println("your bike rent is : ${1000 * days}")
+    }
+}
+
+class Truck(registrationNumber: String, brand: String, val days: Int) :
+    Vehicle(registrationNumber, brand) {
+    override fun calculateRent() {
+        println("your truck rent is : ${2000 * days}")
+    }
+}
+
+fun main() {
+    val vehicles = listOf<Vehicle>(
+        Car("123", "mg", 4),
+        Bike("890", "bajaj", 2),
+        Truck("4567", "TATA", 5)
+    )
+
+    for (vehicle in vehicles) {
+        vehicle.displayInfo()
+        vehicle.calculateRent()
+    }
+}
