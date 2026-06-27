@@ -1,0 +1,24 @@
+package com.example.myapplication
+
+class Book(val title: String, val author: String) {
+    companion object {
+        var totalBooks = 0;
+        const val LIBRARY_NAME = "Dummy Library"
+        fun registerBooks() {
+            totalBooks = totalBooks + 1
+        }
+    }
+
+    init {
+        registerBooks()
+    }
+}
+
+fun main() {
+    val book1 = Book("book1", "author1")
+    val book2 = Book("book2", "author2")
+    val book3 = Book("book3", "author3")
+    
+    println("TotalBooks : ${Book.totalBooks} and library name : ${Book.LIBRARY_NAME}")
+
+}
