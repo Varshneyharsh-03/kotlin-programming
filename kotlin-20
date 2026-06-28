@@ -1,0 +1,49 @@
+package com.example.myapplication
+
+fun fact(a: Int):Int{
+    var ans = 1
+    for (i in 1..a) {
+        ans *= i
+    }
+    return ans
+}
+
+
+val sum = { a: Int, b: Int ->
+    a + b
+}
+
+val diff = { a: Int, b: Int ->
+    a - b
+}
+
+val mul = { a: Int, b: Int -> a * b }
+
+val divide = { a: Int, b: Int ->
+    a / b
+}
+
+val isEven = { a: Int -> a % 2 == 0 }
+
+val factorial = { a: Int ->
+    fact(a)
+}
+
+val grade = { a: Int ->
+    if (a >= 70) "Good Marks" else "Bad Marks"
+}
+
+fun main() {
+    val a = 21
+    val b = 3
+    println(sum(21, 3))
+    println(diff(a, b))
+    println(mul(a, b))
+    println(divide(a, b))
+    println(isEven(a))
+    println(factorial(3))
+    println(grade(a))
+    println(grade(89))
+
+
+}
