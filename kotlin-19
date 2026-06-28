@@ -1,0 +1,45 @@
+package com.example.myapplication
+
+class Student{
+    var name: String =""
+    var age: Int =0
+    var cgpa: Double = 0.0
+}
+
+fun main() {
+    /*
+    apply->config
+    let->nullable
+    run -> for calculation
+    also -> log/debug
+    with -> multiple work together
+    * */
+
+
+    val s1 = Student().apply {
+        name = "harsh"
+        age = 21
+        cgpa = 4.6
+    }
+
+    s1.also {
+        println("Object is created")
+    }
+
+    s1.let {
+        it.name.uppercase()
+
+    }
+
+    val check : Boolean = s1.run {
+        cgpa >= 7.2
+    }
+
+    with(s1) {
+        println(s1.cgpa)
+        println(s1.name)
+        println(s1.age)
+    }
+
+
+}
