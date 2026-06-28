@@ -1,1 +1,28 @@
 
+package com.example.myapplication
+enum class Defficulty(val level : Int){
+    EASY(2),
+    MEDIUM(4),
+    HARD(6);
+
+    fun displayMessage(){
+        when(this){
+            EASY ->{
+                println("this is easy")
+            }
+            MEDIUM->{
+                println("this is medium")
+            }
+            HARD->{
+                println("this is hard")
+            }
+        }
+    }
+
+}
+fun main(){
+    for(ele in Defficulty.entries){
+        println("${ele.name} and ordinal ${ele.ordinal}")
+        ele.displayMessage()
+    }
+}
