@@ -1,0 +1,132 @@
+package com.example.myapplication
+
+data class Student(
+    val id: Int,
+    val name: String,
+    val department: String,
+    val age: Int,
+    val cgpa: Double,
+    val placement: Boolean
+)
+
+val students = mutableListOf(
+    Student(1, "Harsh", "CSE", 21, 9.1, true),
+    Student(2, "Aman", "IT", 22, 8.4, false),
+    Student(3, "Priya", "ECE", 20, 9.5, true),
+    Student(4, "Rohan", "ME", 23, 7.8, false),
+    Student(5, "Sneha", "Civil", 21, 8.9, true),
+    Student(6, "Karan", "CSE", 22, 7.2, false),
+    Student(7, "Neha", "IT", 20, 9.3, true),
+    Student(8, "Rahul", "ECE", 21, 8.1, false),
+    Student(9, "Anjali", "ME", 22, 8.7, true),
+    Student(10, "Vikas", "Civil", 23, 6.9, false),
+    Student(11, "Pooja", "CSE", 20, 9.8, true),
+    Student(12, "Arjun", "IT", 21, 7.5, false),
+    Student(13, "Simran", "ECE", 22, 8.8, true),
+    Student(14, "Nikhil", "ME", 20, 8.0, false),
+    Student(15, "Meera", "Civil", 21, 9.4, true)
+)
+
+fun main() {
+    val studentsInUppercase = students.map {
+        it.name.uppercase()
+    }
+    println(studentsInUppercase)
+
+    val studentsCgpaGreaterThan8 = students.filter {
+        it.cgpa >= 8.0
+    }
+    println(studentsCgpaGreaterThan8)
+
+    val placedStudents = students.filter {
+        it.placement
+    }
+    println(placedStudents)
+
+    val totalCgpa = students.reduce { acc, student ->
+        Student(
+            0,
+            "dummy",
+            "Dep",
+            0,
+            acc.cgpa + student.cgpa,
+            true
+        )
+    }
+
+    println(totalCgpa.cgpa)
+
+    val totalCgpaWithBonus = students.fold(
+        Student(
+            0,
+            "dummy",
+            "Dep",
+            0,
+            5.0,
+            true
+        )
+    ) { acc, student ->
+        Student(
+            0,
+            "dummy",
+            "Dep",
+            0,
+            acc.cgpa + student.cgpa,
+            true
+        )
+    }
+
+    println(totalCgpaWithBonus.cgpa)
+
+    students.forEach {
+        println(it)
+    }
+
+    val cgpaLessThan5 = students.any {
+        it.cgpa < 5.0
+    }
+
+    println(cgpaLessThan5)
+
+    val allStudentsAgeGreaterThan18 = students.all { it.age >= 18 }
+    println(allStudentsAgeGreaterThan18)
+
+
+    val checkStudentBelongToLawDep = students.none {
+        it.department != "Law"
+    }
+    println(checkStudentBelongToLawDep)
+
+    val numOfPlacedStudents = students.count {
+        it.placement
+    }
+    println(numOfPlacedStudents)
+
+    val findFirst = students.find {
+        it.department == "ECE"
+    }
+
+    println(findFirst)
+
+
+    val sortStudentByCgpa = students.sortBy {
+        it.cgpa
+    }
+    println(sortStudentByCgpa)
+
+    val sortStudentByCgpaDes = students.sortByDescending {
+        it.cgpa
+    }
+    println(sortStudentByCgpaDes)
+
+
+    val groupStudentsBasedOnDepartment = students.groupBy { it.department }
+    println(groupStudentsBasedOnDepartment)
+
+
+    val mapStudents = students.associate {
+        it.id to it.name
+    }
+
+    println(mapStudents)
+}
